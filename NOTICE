@@ -1,0 +1,12 @@
+This independent community plugin derives from the Azure dictation implementation
+in OpenClaw commit 65139d41d6f086f11a47be35d28eff980cf76bad and the MIT-licensed
+OpenClaw audio-codec and bounded audio-queue implementations.
+
+Copyright (c) 2026 OpenClaw Foundation
+Copyright (c) 2026 Wen Xuan Teng
+
+See LICENSE for the MIT license.
+
+This plugin is not an official OpenClaw or Microsoft product. Microsoft Azure and
+Azure Speech are trademarks of Microsoft Corporation. The Microsoft Speech SDK
+is distributed separately under its own package license.

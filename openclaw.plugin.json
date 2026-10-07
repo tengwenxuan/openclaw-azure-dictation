@@ -1,0 +1,52 @@
+{
+  "id": "azure-dictation",
+  "name": "Azure Dictation",
+  "description": "Stream microphone speech to Azure Speech and insert transcripts into dashboard drafts. Independent community plugin; no voice-note ingestion or TTS.",
+  "categories": ["voice"],
+  "capabilityCatalogEntry": "./dist/capability-catalog.js",
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "realtimeTranscriptionProviders": ["azure-dictation"]
+  },
+  "setup": {
+    "providers": [
+      {
+        "id": "azure-dictation",
+        "envVars": ["AZURE_SPEECH_KEY", "AZURE_SPEECH_API_KEY", "SPEECH_KEY", "AZURE_SPEECH_REGION", "SPEECH_REGION"]
+      }
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "Azure Speech resource key; otherwise reuse Azure TTS settings or the Speech key environment variables."
+      },
+      "region": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+$",
+        "description": "Azure Speech resource region, for example eastus."
+      },
+      "language": {
+        "type": "string",
+        "description": "Recognition locale, for example en-US. Otherwise reuse Azure TTS lang, then en-US."
+      }
+    }
+  },
+  "uiHints": {
+    "apiKey": {
+      "label": "Azure Speech key",
+      "sensitive": true
+    },
+    "region": {
+      "label": "Azure Speech region"
+    },
+    "language": {
+      "label": "Recognition language"
+    }
+  }
+}
