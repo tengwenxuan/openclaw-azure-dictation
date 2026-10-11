@@ -1,12 +1,13 @@
 import assert from "node:assert/strict";
 import { execFileSync, spawn } from "node:child_process";
 import { once } from "node:events";
-import { mkdtempSync, mkdirSync, rmSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, rmSync } from "node:fs";
 import net from "node:net";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
+const { version } = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
 const archive = path.resolve(process.argv[2] ?? "");
 assert.ok(process.argv[2], "Pass the npm-pack tarball to test.");
 const artifacts = path.join(root, "artifacts");
@@ -46,7 +47,7 @@ try {
   const status = JSON.parse(cli("plugins", "list", "--json"));
   const installed = status.plugins.find((plugin) => plugin.id === "azure-dictation");
   assert.equal(installed?.status, "loaded", "The installed package did not load.");
-  assert.equal(installed?.version, "0.1.0");
+  assert.equal(installed?.version, version);
 
   const entry = await import(pathToFileURL(installed.source).href);
   const registered = [];

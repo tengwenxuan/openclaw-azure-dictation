@@ -10,13 +10,15 @@ Azure Speech text-to-speech plugin.
 - Node requirement: 24.16+ within Node 24, or 26.1+
 - License: MIT; see [NOTICE](NOTICE) for source attribution
 
-OpenClaw's plugin APIs are experimental. This first release pins compatibility
-to the tested host rather than claiming support for untested releases.
+OpenClaw's plugin APIs are experimental. Version 0.1.1 requires OpenClaw
+**2026.9.8 or newer**, replacing v0.1.0's exact-version restriction. The declared
+range permits later hosts; the tested versions above do not guarantee
+compatibility with every future release.
 
 ## Install
 
 ```bash
-openclaw plugins install clawhub:@tengwenxuan/openclaw-azure-dictation@0.1.0
+openclaw plugins install clawhub:@tengwenxuan/openclaw-azure-dictation@0.1.1
 ```
 
 Review and approve the installer's declared transcription capability. If you
@@ -135,7 +137,13 @@ description is not an operating-system sandbox.
 
 ## Update or remove
 
-For a future release:
+To move from the exact v0.1.0 pin to this release:
+
+```bash
+openclaw plugins install clawhub:@tengwenxuan/openclaw-azure-dictation@0.1.1 --force
+```
+
+For subsequent updates:
 
 ```bash
 openclaw plugins update azure-dictation
@@ -160,7 +168,7 @@ npm run typecheck
 npm test
 mkdir -p artifacts
 npm pack --pack-destination artifacts
-npm run test:install -- artifacts/tengwenxuan-openclaw-azure-dictation-0.1.0.tgz
+npm run test:install -- artifacts/tengwenxuan-openclaw-azure-dictation-0.1.1.tgz
 clawhub package validate .
 clawhub package publish . --dry-run
 ```
