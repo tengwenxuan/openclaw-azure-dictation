@@ -1,6 +1,6 @@
 {
   "name": "@tengwenxuan/openclaw-azure-dictation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Azure Speech streaming dictation for OpenClaw dashboard chat drafts",
   "type": "module",
   "license": "MIT",
@@ -26,22 +26,22 @@
     "microsoft-cognitiveservices-speech-sdk": "1.51.0"
   },
   "peerDependencies": {
-    "openclaw": "2026.9.8"
+    "openclaw": ">=2026.9.8"
   },
   "devDependencies": {
     "@types/node": "24.10.1",
-    "openclaw": "2026.9.8",
+    "openclaw": "2026.10.1",
     "typescript": "7.0.2",
     "vitest": "5.0.1"
   },
   "openclaw": {
     "extensions": ["./dist/index.js"],
     "compat": {
-      "pluginApi": "2026.9.8",
+      "pluginApi": ">=2026.9.8",
       "minGatewayVersion": "2026.9.8"
     },
     "build": {
-      "openclawVersion": "2026.9.8"
+      "openclawVersion": "2026.10.1"
     },
     "install": {
       "clawhubSpec": "clawhub:@tengwenxuan/openclaw-azure-dictation",

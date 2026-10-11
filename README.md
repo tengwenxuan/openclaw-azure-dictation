@@ -6,7 +6,7 @@ Azure Speech text-to-speech plugin.
 
 - Package: `@tengwenxuan/openclaw-azure-dictation`
 - Plugin and transcription-provider ID: `azure-dictation`
-- Tested host: **OpenClaw 2026.9.8**, on Linux x64 with Node 24
+- Tested hosts: **OpenClaw 2026.9.8 and 2026.10.1**, on Linux x64 with Node 24
 - Node requirement: 24.16+ within Node 24, or 26.1+
 - License: MIT; see [NOTICE](NOTICE) for source attribution
 
